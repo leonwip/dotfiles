@@ -1,52 +1,97 @@
 return {
   "lewis6991/gitsigns.nvim",
-  opts = {
-    auto_attach = true,
-    on_attach = function(bufnr)
-      local gitsigns = require("gitsigns")
-
-      local function map(mode, l, r, opts)
-        opts = opts or {}
-        opts.buffer = bufnr
-        vim.keymap.set(mode, l, r, opts)
-      end
-
-      map("n", "]c", function()
-        if vim.wo.diff then
-          vim.cmd.normal({ "]c", bang = true })
-        else
-          gitsigns.nav_hunk("next")
-        end
-      end)
-
-      map("n", "[c", function()
-        if vim.wo.diff then
-          vim.cmd.normal({ "[c", bang = true })
-        else
-          gitsigns.nav_hunk("prev")
-        end
-      end)
-
-      map("n", "<Leader>hs", gitsigns.stage_hunk)
-      map("n", "<Leader>hr", gitsigns.reset_hunk)
-      map("v", "<Leader>hs", function()
-        gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
-      end)
-      map("v", "<Leader>hr", function()
-        gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
-      end)
-
-      map("n", "<Leader>hS", gitsigns.stage_buffer)
-      map("n", "<Leader>hR", gitsigns.reset_buffer)
-      map("n", "<Leader>hp", gitsigns.preview_hunk)
-      map("n", "<Leader>hi", gitsigns.preview_hunk_inline)
-      map("n", "<Leader>hb", function() gitsigns.blame_line({ full = true }) end)
-      map("n", "<Leader>hd", gitsigns.diffthis)
-      map("n", "<Leader>hD", function() gitsigns.diffthis("~") end)
-      map("n", "<Leader>hQ", function() gitsigns.setqflist("all") end)
-      map("n", "<Leader>hq", gitsigns.setqflist)
-      map("n", "<Leader>tb", gitsigns.toggle_current_line_blame)
-      map("n", "<Leader>tw", gitsigns.toggle_word_diff)
-    end,
+  -- FIXME: auto-attach not working?
+  opts = { auto_attach = true },
+  keys = {
+    -- movement
+    {
+      "[c",
+      "<Cmd>Gitsigns prev_hunk<CR>",
+      desc = "Previous hunk",
+      mode = "n",
+    },
+    {
+      "]c",
+      "<Cmd>Gitsigns next_hunk<CR>",
+      desc = "Next hunk",
+      mode = "n",
+    },
+    -- staging
+    {
+      "<Leader>hs",
+      "<Cmd>Gitsigns stage_hunk<CR>",
+      desc = "Stage hunk",
+      mode = "n",
+    },
+    {
+      "<Leader>hr",
+      "<Cmd>Gitsigns reset_hunk<CR>",
+      desc = "Reset hunk",
+      mode = "n",
+    },
+    {
+      "<Leader>hS",
+      "<Cmd>Gitsigns stage_buffer<CR>",
+      desc = "Stage buffer",
+      mode = "n",
+    },
+    {
+      "<Leader>hR",
+      "<Cmd>Gitsigns reset_buffer<CR>",
+      desc = "Reset buffer",
+      mode = "n",
+    },
+    -- preview
+    {
+      "<Leader>hp",
+      "<Cmd>Gitsigns preview_hunk<CR>",
+      desc = "Preview hunk",
+      mode = "n",
+    },
+    {
+      "<Leader>hi",
+      "<Cmd>Gitsigns preview_hunk_inline<CR>",
+      desc = "Preview hunk (inline)",
+      mode = "n",
+    },
+    -- blame
+    {
+      "<Leader>hb",
+      "<Cmd>Gitsigns blame_line<CR>",
+      desc = "Blame line",
+      mode = "n",
+    },
+    {
+      "<Leader>ht",
+      "<Cmd>Gitsigns toggle_current_line_blame<CR>",
+      desc = "Toggle line blame",
+      mode = "n",
+    },
+    -- diff
+    {
+      "<Leader>hd",
+      "<Cmd>Gitsigns diffthis<CR>",
+      desc = "Diff this",
+      mode = "n",
+    },
+    {
+      "<Leader>hw",
+      "<Cmd>Gitsigns toggle_word_diff<CR>",
+      desc = "Toggle word diff",
+      mode = "n",
+    },
+    -- qflist
+    {
+      "<Leader>hq",
+      "<Cmd>Gitsigns setqflist<CR>",
+      desc = "Buffer qflist",
+      mode = "n",
+    },
+    {
+      "<Leader>hQ",
+      "<Cmd>Gitsigns setqflist all<CR>",
+      desc = "Project qflist",
+      mode = "n",
+    },
   },
 }
