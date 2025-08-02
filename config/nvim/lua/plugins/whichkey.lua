@@ -9,6 +9,7 @@ return {
         { plugin = "neo-tree.nvim", icon = "󰙅", color = "green" },
         { plugin = "trouble.nvim", icon = "", color = "red" },
         { plugin = "twilight.nvim", icon = "", color = "yellow" },
+        { plugin = "undotree", icon = "", color = "blue" },
       },
     },
   },
