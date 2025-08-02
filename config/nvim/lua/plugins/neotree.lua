@@ -14,58 +14,62 @@ return {
       "document_symbols",
       "git_status",
     },
+    -- use neotree as netrw
+    filesystem = {
+      hijack_netrw_behavior = "open_current",
+    },
   },
   keys = {
-    -- toggle
+    -- toggle side pane
     {
       "<Leader>tt",
-      "<Cmd>Neotree toggle<CR>",
+      "<Cmd>Neotree position=left source=last toggle<CR>",
       desc = "Toggle tree",
       mode = "n",
     },
 
-    -- sources
+    -- switch between sources
     {
       "<Leader>tf",
-      "<Cmd>Neotree focus filesystem<CR>",
+      "<Cmd>Neotree position=current filesystem<CR>",
       desc = "File system",
       mode = "n",
     },
     {
       "<Leader>tg",
-      "<Cmd>Neotree focus git_status<CR>",
+      "<Cmd>Neotree position=current git_status<CR>",
       desc = "Git status",
       mode = "n",
     },
     {
       "<Leader>tb",
-      "<Cmd>Neotree focus buffers<CR>",
+      "<Cmd>Neotree position=current buffers<CR>",
       desc = "Buffers",
       mode = "n",
     },
     {
       "<Leader>ts",
-      "<Cmd>Neotree focus document_symbols<CR>",
+      "<Cmd>Neotree position=current document_symbols<CR>",
       desc = "Document symbols",
       mode = "n",
     },
 
-    -- reveal
+    -- reveal in specific source
     {
       "<Leader>trf",
-      "<Cmd>Neotree focus filesystem reveal_force_cwd<CR>",
+      "<Cmd>Neotree position=left filesystem reveal_force_cwd<CR>",
       desc = "Reveal in file system",
       mode = "n",
     },
     {
       "<Leader>trg",
-      "<Cmd>Neotree focus git_status reveal_force_cwd<CR>",
+      "<Cmd>Neotree position=left git_status reveal_force_cwd<CR>",
       desc = "Reveal in Git status",
       mode = "n",
     },
     {
       "<Leader>trb",
-      "<Cmd>Neotree focus buffers reveal_force_cwd<CR>",
+      "<Cmd>Neotree position=left buffers reveal_force_cwd<CR>",
       desc = "Reveal in buffers",
       mode = "n",
     },
