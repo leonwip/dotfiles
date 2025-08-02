@@ -1,7 +1,7 @@
 return {
   "lewis6991/gitsigns.nvim",
-  -- FIXME: auto-attach not working?
-  opts = { auto_attach = true },
+  event = { "BufReadPre", "BufNewFile" },
+  opts = {},
   keys = {
     -- movement
     {
@@ -57,6 +57,12 @@ return {
     -- blame
     {
       "<Leader>hb",
+      "<Cmd>Gitsigns blame<CR>",
+      desc = "Blame",
+      mode = "n",
+    },
+    {
+      "<Leader>hl",
       "<Cmd>Gitsigns blame_line<CR>",
       desc = "Blame line",
       mode = "n",
