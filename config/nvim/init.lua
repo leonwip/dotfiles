@@ -64,7 +64,7 @@ require "nvim-treesitter.configs".setup {
         "gitattributes", "gitcommit", "gitignore", "html", "json", "kconfig",
         "python", "xml", "yaml", "javascript", "typescript", "jinja",
         "jinja_inline", "c", "cpp", "cmake", "lua", "vim", "vimdoc",
-        "markdown", "markdown_inline",
+        "markdown", "markdown_inline", "rust", "toml",
     },
     sync_install = false,
     auto_install = true,
