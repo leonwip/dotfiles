@@ -24,12 +24,19 @@ vim.o.showmatch = true
 vim.o.number = true
 -- highlight current line
 vim.o.cursorline = true
+-- use relative numbers
+vim.o.relativenumber = true
 
 -- backspace over everything
 vim.o.backspace = "indent,eol,start"
 
--- wrap long liness
+-- wrap long lines
 vim.o.wrap = true
+-- highlighting column 80
+vim.o.colorcolumn = "80"
+
+-- keep 8 rows when scrolling
+vim.o.scrolloff = 8
 
 -- we'll use treesitter for syntax highlighting
 vim.o.syntax = "off"
@@ -37,32 +44,34 @@ vim.o.syntax = "off"
 vim.o.autoindent = true
 vim.o.smartindent = true
 
--- TODO: indent detection
+-- indent using 4 spaces
+-- TODO: indent detection?
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
 vim.o.expandtab = true
-vim.o.shiftwidth = 2
-vim.o.tabstop = 2
 
+-- show whitespaces
 vim.o.list = true
-vim.o.listchars = "tab:>·,space:·"
--- TODO: show indent for spaces
+vim.o.listchars = "tab:│—,lead:‧,leadmultispace:│‧‧‧,extends:»,precedes:«"
 
 require("config.lazy")
 
 -- TODO: clean up treesitter config
-require 'nvim-treesitter.configs'.setup {
-  ensure_installed = {
-    "bash", "css", "csv", "diff", "git_config", "git_rebase",
-    "gitattributes", "gitcommit", "gitignore", "html", "json",
-    "kconfig", "python", "xml", "yaml",
-    "javascript", "jinja", "jinja_inline", "c", "cpp", "cmake",
-    "lua", "vim", "vimdoc", "markdown", "markdown_inline",
-  },
-  sync_install = false,
-  auto_install = true,
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-  },
+require "nvim-treesitter.configs".setup {
+    ensure_installed = {
+        "bash", "css", "csv", "diff", "git_config", "git_rebase",
+        "gitattributes", "gitcommit", "gitignore", "html", "json", "kconfig",
+        "python", "xml", "yaml", "javascript", "typescript", "jinja",
+        "jinja_inline", "c", "cpp", "cmake", "lua", "vim", "vimdoc",
+        "markdown", "markdown_inline",
+    },
+    sync_install = false,
+    auto_install = true,
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+    },
 }
 
 vim.wo.foldenable = false
