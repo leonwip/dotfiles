@@ -48,7 +48,6 @@
     kitty
     waybar
     wofi
-    git
     hyprpaper
     neovim
     cifs-utils
@@ -56,6 +55,13 @@
     yubikey-manager
     pinentry-gtk2
     gcc
+    kicad
+  ];
+
+  fonts.packages = with pkgs; [
+    fira-code
+    fira-code-symbols
+    nerd-fonts.fira-code
   ];
 
   services.udev.packages = with pkgs; [

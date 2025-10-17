@@ -1,0 +1,62 @@
+{
+    "layer": "top",
+    "position": "top",
+
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window",
+    ],
+    "modules-center": [
+        "clock",
+    ],
+    "modules-right": [
+        "cpu",
+        "memory",
+        "disk",
+        "network",
+        "wireplumber",
+    ],
+
+    /* Left */
+    "hyprland/workspaces": {
+        "sort-by-name": true,
+        "format": " {icon} ",
+        "format-icons": {
+            "default": "",
+        },
+    },
+    "hyprland/window": {
+        "format": "{title}"
+    },
+
+    /* Center */
+    "clock": {
+        "interval": 1,
+        "format": "  {:L%A, %B %d, %Y — %R}",
+    },
+
+    /* Right */
+    "cpu": {
+        "interval": 1,
+        "format": " {usage}%",
+    },
+    "memory": {
+        "interval": 1,
+        "format": " {percentage}%",
+    },
+    "disk": {
+        "interval": 30,
+        "format": " {percentage_used}%",
+    },
+    "network": {
+        "interval": 60,
+        "format": "{ifname}",
+        "format-ethernet": " {ipaddr}/{cidr}",
+        "format-disconnected": "",
+    },
+    "wireplumber": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟",
+        "format-icons": ["", "", ""],
+    },
+}
