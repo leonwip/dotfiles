@@ -3,59 +3,45 @@
 * {
     font-family: "FiraCode Nerd Font";
     font-size: 16px;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
 }
 
-#waybar {
-    background: transparent;
-    color: @text;
+#waybar { background: transparent; }
+
+.modules-left { padding-top: 5px; }
+.modules-center { padding-top: 5px; }
+.modules-right {
+    padding-top: 5px;
+    padding-right: 10px;
 }
 
-#workspaces {
-    border-radius: 1rem;
-    background-color: alpha(@surface0, 0.5);
-    margin: 10px 10px 5px 10px;
-}
-
+#workspaces { margin-right: 10px; }
 #workspaces button {
+    padding-right: 6px;
     color: @lavender;
-    border-radius: 1rem;
-    padding: 0.4rem;
 }
-
-#workspaces button.active {
-    color: @sky;
-    border-radius: 1rem;
-}
-
+#workspaces button.active { color: @sky; }
 #workspaces button:hover {
-    color: @sapphire;
-    border-radius: 1rem;
+    background: none;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    transition: none;
+    text-shadow: none;
 }
+#workspaces button:hover .workspace-label { color: @mauve; }
 
 #window,
-#clock {
-    margin-top: 10px;
-    margin-bottom: 5px;
-}
+#clock { color: @text; }
 
 #cpu,
 #memory,
 #disk,
 #network,
-#wireplumber {
-    background-color: alpha(@surface0, 0.5);
-    margin: 10px 0 5px 0;
-    padding: 0.4rem 0.5rem;
-}
-
-#cpu {
-    border-radius: 1rem 0 0 1rem;
-    padding-left: 1rem;
-}
-#wireplumber {
-    border-radius: 0 1rem 1rem 0;
-    padding-right: 1rem;
-}
+#wireplumber { margin: 0 5px 0 10px; }
 
 #cpu { color: @mauve; }
 #memory { color: @red; }

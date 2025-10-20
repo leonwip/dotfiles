@@ -19,7 +19,9 @@
 
     /* Left */
     "hyprland/workspaces": {
-        "sort-by-name": true,
+        "persistent-workspaces": {
+            "*": 4,
+        },
         "format": " {icon} ",
         "format-icons": {
             "default": "",

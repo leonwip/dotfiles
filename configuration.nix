@@ -35,27 +35,11 @@
   users.users.leon = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
-    packages = with pkgs; [
-      tree
-    ];
   };
-
-  programs.firefox.enable = true;
 
   environment.systemPackages = with pkgs; [
     vim
-    wget
-    kitty
-    waybar
-    wofi
-    hyprpaper
-    neovim
     cifs-utils
-    yubikey-personalization
-    yubikey-manager
-    pinentry-gtk2
-    gcc
-    kicad
   ];
 
   fonts.packages = with pkgs; [
@@ -63,11 +47,6 @@
     fira-code-symbols
     nerd-fonts.fira-code
   ];
-
-  services.udev.packages = with pkgs; [
-    yubikey-personalization
-  ];
-  services.pcscd.enable = true;
 
   fileSystems."/mnt/documents" = {
     device = "//umbrella/Documents";
