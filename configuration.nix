@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ pkgs, ... }: {
 
     services.pipewire = {
         enable = true;
@@ -8,6 +8,8 @@
     users.users.leon = {
         isNormalUser = true;
         extraGroups = [ "wheel" ];
+        shell = pkgs.zsh;
+        ignoreShellProgramCheck = true;
     };
 
     environment.systemPackages = with pkgs; [

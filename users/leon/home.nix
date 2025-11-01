@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
 
     home = {
         stateVersion = "25.05";
@@ -22,8 +22,6 @@
             screen
             nix-index
             dconf
-            gnumake
-            ripgrep
 
             /* Fonts */
             dejavu_fonts
@@ -34,7 +32,6 @@
 
         file = {
             ".config/kitty".source = ./config/kitty;
-            ".config/nvim".source = ./config/nvim;
             ".wallpapers".source = ./wallpapers;
         };
 
@@ -46,11 +43,6 @@
     };
 
     fonts.fontconfig.enable = true;
-
-    programs.neovim = {
-        enable = true;
-        defaultEditor = true;
-    };
 
     programs.htop.enable = true;
     programs.btop.enable = true;
@@ -71,6 +63,7 @@
     imports = [
         ./git.nix
         ./hypr.nix
+        ./neovim.nix
         ./shell.nix
         ./waybar.nix
         ./firefox.nix

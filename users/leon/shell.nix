@@ -18,6 +18,11 @@
             ga = "git a";
         };
 
+        initContent = ''
+            PROMPT_COMMAND='printf "\033]133;A\007"'
+            precmd() { eval "$PROMPT_COMMAND" }
+        '';
+
         history.size = 10000;
 
         oh-my-zsh = {

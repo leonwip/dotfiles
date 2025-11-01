@@ -1,10 +1,12 @@
 return {
     "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
         vim.lsp.enable("clangd")
         vim.lsp.enable("lua_ls")
         vim.lsp.enable("rust_analyzer")
         vim.lsp.enable("marksman")
+        vim.lsp.enable("nixd")
     end,
     keys = {
         {

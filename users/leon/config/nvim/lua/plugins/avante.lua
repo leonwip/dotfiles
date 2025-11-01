@@ -19,5 +19,10 @@ return {
                 max_tokens = 20480,
             },
         },
+        windows = {
+            sidebar_header = {
+                rounded = false,
+            },
+        },
     },
 }
