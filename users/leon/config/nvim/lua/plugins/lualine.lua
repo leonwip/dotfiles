@@ -3,5 +3,11 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
         theme = "catppuccin",
+        extensions = {
+            "avante",
+            "lazy",
+            "neo-tree",
+            "trouble",
+        },
     },
 }

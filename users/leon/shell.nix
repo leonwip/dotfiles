@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ ... }: {
 
     programs.bash.enable = true;
 
@@ -18,6 +18,7 @@
             ga = "git a";
         };
 
+        /* prompt marker for neovim terminal */
         initContent = ''
             PROMPT_COMMAND='printf "\033]133;A\007"'
             precmd() { eval "$PROMPT_COMMAND" }
@@ -27,8 +28,26 @@
 
         oh-my-zsh = {
             enable = true;
-            theme = "robbyrussell";
-            plugins = [ "git" ];
+            plugins = [
+                "git"
+                "eza"
+                "z"
+                "systemd"
+                "sudo"
+                "history"
+            ];
+        };
+    };
+
+    programs.starship = {
+        enable = true;
+        enableZshIntegration = true;
+        settings = {
+            add_newline = true;
+            character = {
+                success_symbol = "[➜](bold green)";
+                error_symbol = "[➜](bold red)";
+            };
         };
     };
 

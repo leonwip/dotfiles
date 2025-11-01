@@ -48,6 +48,8 @@
     networking.hostName = "honeybee";
     networking.networkmanager.enable = true;
 
+    systemd.services.NetworkManager-wait-online.enable = false;
+
     /* Graphics stuff */
 
     services.xserver.videoDrivers = [ "nvidia" ];
@@ -67,6 +69,10 @@
     /* Misc */
 
     nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+
     hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+    services.fstrim.enable = true;
+    services.fwupd.enable = true;
 
 }

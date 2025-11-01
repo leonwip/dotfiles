@@ -14,9 +14,20 @@ return {
             "document_symbols",
             "git_status",
         },
+        -- tab bar with sources
+        source_selector = {
+            winbar = true,
+            sources = {
+                { display_name = "󰉓", source = "filesystem" },
+                { display_name = "󰈚", source = "buffers" },
+                { display_name = "", source = "document_symbols" },
+                { display_name = "󰊢", source = "git_status" },
+            },
+            content_layout = "center",
+        },
         -- use neotree as netrw
         filesystem = {
-            hijack_netrw_behavior = "open_current",
+            hijack_netrw_behavior = "open_default",
         },
     },
     keys = {

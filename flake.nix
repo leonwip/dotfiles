@@ -9,10 +9,11 @@
         };
     };
 
-    outputs = { nixpkgs, home-manager, ... }: {
+    outputs = { nixpkgs, home-manager, ... }@inputs: {
         nixosConfigurations = {
             /* my home desktop */
             honeybee = nixpkgs.lib.nixosSystem {
+                specialArgs = { inherit inputs; };
                 system = "x86_64-linux";
                 modules = [
                     /* Host-specific config */
@@ -23,6 +24,7 @@
                     ./configuration.nix
                     ./greetd.nix
                     ./locale.nix
+                    ./maintenance.nix
                     ./network-mounts.nix
 
                     /* Home-manager config */

@@ -20,8 +20,9 @@
             inkscape
             qbittorrent
             screen
-            nix-index
             dconf
+            eza
+            fastfetch
 
             /* Fonts */
             dejavu_fonts
@@ -54,10 +55,14 @@
         vaults."obsidian".enable = true;
     };
 
-    dconf.settings = {
-        "org/gnome/desktop/interface" = {
-            color-scheme = "prefer-dark";
-        };
+    gtk = {
+        enable = true;
+        colorScheme = "dark";
+    };
+
+    programs.nix-index = {
+        enable = true;
+        enableZshIntegration = true;
     };
 
     imports = [

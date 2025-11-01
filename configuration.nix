@@ -5,6 +5,8 @@
         pulse.enable = true;
     };
 
+    services.timesyncd.enable = true;
+
     users.users.leon = {
         isNormalUser = true;
         extraGroups = [ "wheel" ];

@@ -3,10 +3,15 @@ return {
     name = "catppuccin",
     priority = 1000,
     opts = {
-        auto_integrations = true,
-        transparent_background = true,
-        float = {
-            transparent = true,
+        float = { transparent = true },
+        dim_inactive = { enabled = true },
+        integrations = {
+            gitsigns = true,
+            neotree = true,
+            cmp = true,
+            telescope = { enabled = true },
+            lsp_trouble = true,
+            which_key = true,
         },
     },
     init = function()

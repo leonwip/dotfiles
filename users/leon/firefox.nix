@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
 
     programs.firefox = {
         enable = true;
@@ -20,8 +20,6 @@
                 "privacy.trackingprotection.socialtracking.enabled" = true;
                 # Fingerprinting mitigation
                 "privacy.fingerprintingProtection" = true;
-                "privacy.resistFingerprinting" = true;
-                "privacy.resistFingerprinting.pbmode" = true;
                 # Prevent cross-site tracking
                 "privacy.firstparty.isolate" = true;
                 # Isolate network connections by site
@@ -102,10 +100,106 @@
                     { name = "NixOS Search"; url = "https://search.nixos.org/packages"; }
                     { name = "ChatGPT"; url = "https://chatgpt.com/"; }
                     { name = "Hackaday"; url = "https://hackaday.com/blog/"; }
-                    { name = "Buildroot manual"; url = "https://buildroot.org/downloads/manual/manual.html"; }
+                    { name = "Buildroot Manual"; url = "https://buildroot.org/downloads/manual/manual.html"; }
                     { name = "Claude Console"; url = "https://console.anthropic.com/"; }
                     { name = "New York Times"; url = "https://www.nytimes.com/"; }
+                    { name = "Twitch"; url = "https://www.twitch.tv/"; }
+                    { name = "Mouser"; url = "https://eu.mouser.com/"; }
+                    { name = "DigiKey"; url = "https://digikey.de/"; }
+                    { name = "KiCanvas"; url = "https://kicanvas.org/"; }
+                    { name = "ZDF"; url = "https://zdf.de/"; }
+                    { name = "ARD Mediathek"; url = "https://ardmediathek.de/"; }
+                    { name = "Apple Music"; url = "https://beta.music.apple.com/"; }
+                    { name = "Apple Podcasts"; url = "https://podcasts.apple.com/de/new"; }
+                    { name = "IMDb"; url = "https://www.imdb.com/"; }
+                    { name = "ArchWiki"; url = "https://wiki.archlinux.org/title/Main_page"; }
+                    { name = "Adafruit"; url = "https://www.adafruit.com/"; }
+                    { name = "SparkFun"; url = "https://www.sparkfun.com/"; }
+                    { name = "Zephyr Documentation"; url = "https://docs.zephyrproject.org/latest/index.html"; }
+                    { name = "Golem"; url = "https://www.golem.de/"; }
+                    { name = "heise"; url = "https://www.heise.de/"; }
+                    { name = "AISLER"; url = "https://aisler.net/"; }
+                    { name = "Proton Mail"; url = "https://account.proton.me/mail"; }
                 ];
+            };
+
+            search = {
+                force = true;
+
+                engines = {
+                    nix-packages = {
+                        name = "Nix Packages";
+                        urls = [{
+                            template = "https://search.nixos.org/packages";
+                            params = [
+                                { name = "type"; value = "packages"; }
+                                { name = "query"; value = "{searchTerms}"; }
+                            ];
+                        }];
+                        icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                        definedAliases = [ "@np" ];
+                    };
+
+                    nixos-wiki = {
+                        name = "NixOS Wiki";
+                        urls = [{
+                            template = "https://wiki.nixos.org/w/index.php";
+                            params = [
+                                { name = "search"; value = "{searchTerms}"; }
+                            ];
+                        }];
+                        iconMapObj."16" = "https://wiki.nixos.org/favicon.ico";
+                        definedAliases = [ "@nw" ];
+                    };
+
+                    my-nixos = {
+                        name = "MyNixOS";
+                        urls = [{
+                            template = "https://mynixos.com/search";
+                            params = [
+                                { name = "q"; value = "{searchTerms}"; }
+                            ];
+                        }];
+                        iconMapObj."16" = "https://mynixos.com/favicon.ico";
+                        definedAliases = [ "@mn" ];
+                    };
+
+                    github = {
+                        name = "GitHub";
+                        urls = [{
+                            template = "https://github.com/search";
+                            params = [
+                                { name = "q"; value = "{searchTerms}"; }
+                            ];
+                        }];
+                        iconMapObj."16" = "https://github.com/favicon.ico";
+                        definedAliases = [ "@gh" ];
+                    };
+
+                    arch-wiki = {
+                        name = "ArchWiki";
+                        urls = [{
+                            template = "https://wiki.archlinux.org/index.php";
+                            params = [
+                                { name = "search"; value = "{searchTerms}"; }
+                            ];
+                        }];
+                        iconMapObj."16" = "https://wiki.archlinux.org/favicon.ico";
+                        definedAliases = [ "@aw" ];
+                    };
+
+                    zephyr-doc = {
+                        name = "Zephyr Documentation";
+                        urls = [{
+                            template = "https://docs.zephyrproject.org/latest/gsearch.html";
+                            params = [
+                                { name = "q"; value = "{searchTerms}"; }
+                            ];
+                        }];
+                        iconMapObj."16" = "https://docs.zephyrproject.org/latest/_static/favicon.png";
+                        definedAliases = [ "@z" ];
+                    };
+                };
             };
         };
     };
