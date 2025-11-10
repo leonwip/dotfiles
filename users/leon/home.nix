@@ -23,6 +23,12 @@
             dconf
             eza
             fastfetch
+            discord
+            can-utils
+
+            /* minecraft */
+            prismlauncher
+            temurin-bin-21
 
             /* Fonts */
             dejavu_fonts
@@ -48,7 +54,6 @@
     programs.htop.enable = true;
     programs.btop.enable = true;
     programs.jq.enable = true;
-    programs.bat.enable = true;
 
     programs.obsidian = {
         enable = true;

@@ -173,7 +173,7 @@
 
                 /* Programs */
                 "$mainMod, Q, exec, kitty"
-                "$mainMod, R, exec, $menu"
+                "$mainMod, R, exec, wofi --show drun"
                 "$mainMod CTRL, 1, exec, firefox"
 
                 /* Move focus vim-style */
