@@ -25,6 +25,9 @@
             fastfetch
             discord
             can-utils
+            wireshark-qt
+            file
+            xorriso
 
             /* minecraft */
             prismlauncher

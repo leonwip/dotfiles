@@ -1,4 +1,8 @@
-{ config, lib, pkgs, modulesPath, ... }: {
+{ config, lib, pkgs, modulesPath, ... }:
+let
+    preloader = pkgs.callPackage ../preloader.nix {};
+in
+{
 
     imports = [
         (modulesPath + "/installer/scan/not-detected.nix")
@@ -21,8 +25,24 @@
 
     /* Bootloader */
 
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
+    boot.loader.systemd-boot = {
+        enable = true;
+        extraFiles = {
+            "EFI/BOOT/BOOTX64.EFI" = "${preloader}/share/PreLoader.efi";
+            "EFI/BOOT/HashTool.efi" = "${preloader}/share/HashTool.efi";
+        };
+        extraEntries = {
+            "HashTool.conf" = ''
+                title HashTool
+                efi /EFI/BOOT/HashTool.efi
+                sort-key z_hashtool
+            '';
+        };
+        extraInstallCommands = ''
+            ${pkgs.uutils-coreutils-noprefix}/bin/cp /boot/EFI/systemd/systemd-bootx64.efi /boot/EFI/BOOT/loader.efi
+        '';
+    };
+    boot.loader.efi.canTouchEfiVariables = false;
 
     /* Drives */
 

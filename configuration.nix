@@ -5,11 +5,16 @@
         pulse.enable = true;
     };
 
+    programs.wireshark.enable = true;
+
     services.timesyncd.enable = true;
 
     users.users.leon = {
         isNormalUser = true;
-        extraGroups = [ "wheel" ];
+        extraGroups = [
+            "wheel"
+            "wireshark"
+        ];
         shell = pkgs.zsh;
         ignoreShellProgramCheck = true;
     };
