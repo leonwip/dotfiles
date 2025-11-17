@@ -36,7 +36,33 @@
                     }
                 ];
             };
-            /* TODO: add work laptop */
+            /* some work laptop */
+            caterpillar = nixpkgs.lib.nixosSystem {
+                specialArgs = { inherit inputs; };
+                system = "x86_64-linux";
+                modules = [
+                    /* Host-specific config */
+                    ./hosts/caterpillar.nix
+
+                    /* TODO: deduplicate the following somehow */
+
+                    /* Host-independent config */
+                    ./cannectivity.nix
+                    ./configuration.nix
+                    ./greetd.nix
+                    ./locale.nix
+                    ./maintenance.nix
+                    ./network-mounts.nix
+
+                    /* Home-manager config */
+                    home-manager.nixosModules.home-manager {
+                        home-manager.useGlobalPkgs = true;
+                        home-manager.useUserPackages = true;
+                        home-manager.users.leon = import ./users/leon/home.nix;
+                        home-manager.backupFileExtension = "bak";
+                    }
+                ];
+            };
             /* TODO: add homeserver */
         };
     };
