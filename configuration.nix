@@ -14,6 +14,7 @@
         extraGroups = [
             "wheel"
             "wireshark"
+            "dialout"
         ];
         shell = pkgs.zsh;
         ignoreShellProgramCheck = true;
@@ -23,6 +24,11 @@
         vim
         usbutils
         pciutils
+    ];
+
+    environment.pathsToLink = [
+        "/share/applications"
+        "/share/xdg-desktop-portal"
     ];
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];

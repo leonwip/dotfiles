@@ -12,7 +12,6 @@
             tmux
             wget
             tree
-            pinentry
             pavucontrol
             kicad
             wofi
@@ -57,11 +56,6 @@
     programs.htop.enable = true;
     programs.btop.enable = true;
     programs.jq.enable = true;
-
-    programs.obsidian = {
-        enable = true;
-        vaults."obsidian".enable = true;
-    };
 
     gtk = {
         enable = true;

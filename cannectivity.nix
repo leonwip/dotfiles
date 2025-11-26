@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ ... }: {
 
     /* udev rules for CANnectivity devices
      * https://github.com/CANnectivity/cannectivity/blob/main/99-cannectivity.rules */

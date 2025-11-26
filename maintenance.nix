@@ -1,4 +1,4 @@
-{ inputs, ... }: {
+{ ... }: {
 
     services.locate = {
         enable = true;
@@ -14,16 +14,6 @@
     nix.optimise = {
         automatic = true;
         dates = "weekly";
-    };
-
-    system.autoUpgrade = {
-        enable = true;
-        flake = inputs.self.outPath;
-        flags = [
-            "--print-build-logs"
-        ];
-        dates = "weekly";
-        randomizedDelaySec = "45min";
     };
 
 }

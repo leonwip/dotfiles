@@ -1,10 +1,12 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
+
+    home.packages = with pkgs; [
+        pinentry-curses
+    ];
 
     programs.git = {
         enable = true;
 
-        userEmail = "leonwip@proton.me";
-        userName = "leonwip";
         lfs.enable = true;
 
         signing = {
@@ -12,19 +14,22 @@
             signByDefault = true;
         };
 
-        extraConfig = {
+        settings = {
+            user.name = "leonwip";
+            user.email = "leonwip@proton.me";
+
+            alias = {
+                s = "status";
+                c = "commit";
+                d = "diff";
+                l = "log --graph --pretty='%Cred%h%Creset - "
+                    + "%C(bold blue)%an%Creset %s%C(yellow)%d%Creset "
+                    + "%Cgreen(%cr)' --abbrev-commit --date=relative";
+                a = "add";
+            };
+
             init.defaultBranch = "main";
             push.autoSetupRemote = true;
-        };
-
-        aliases = {
-            s = "status";
-            c = "commit";
-            d = "diff";
-            l = "log --graph --pretty='%Cred%h%Creset - "
-                + "%C(bold blue)%an%Creset %s%C(yellow)%d%Creset "
-                + "%Cgreen(%cr)' --abbrev-commit --date=relative";
-            a = "add";
         };
     };
 
@@ -33,7 +38,7 @@
         enable = true;
         enableSshSupport = true;
         sshKeys = [ "0EF933A91612E6FE2D094FFED9AA3CAFB8E935D6" ];
-        pinentry.package = pkgs.pinentry-gtk2;
+        pinentry.package = pkgs.pinentry-curses;
     };
 
 }

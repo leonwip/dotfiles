@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 let
     options = "x-systemd.automount,noauto,"
         + "x-systemd.idle-timeout=60,"
