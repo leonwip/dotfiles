@@ -14,7 +14,6 @@
         extraGroups = [
             "wheel"
             "wireshark"
-            "dialout"
         ];
         shell = pkgs.zsh;
         ignoreShellProgramCheck = true;

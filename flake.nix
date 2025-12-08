@@ -19,6 +19,7 @@
                 ./locale.nix
                 ./maintenance.nix
                 ./network-mounts.nix
+                ./openocd.nix
 
                 /* Home-manager config */
                 home-manager.nixosModules.home-manager {

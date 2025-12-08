@@ -3,6 +3,8 @@
     /* udev rules for CANnectivity devices
      * https://github.com/CANnectivity/cannectivity/blob/main/99-cannectivity.rules */
 
+    users.extraGroups.plugdev = {};
+
     services.udev = {
         enable = true;
         extraRules = ''
