@@ -45,15 +45,42 @@ vim.o.autoindent = true
 vim.o.smartindent = true
 
 -- indent using 4 spaces
--- TODO: indent detection?
 vim.o.tabstop = 4
 vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
 
--- show whitespaces
+-- show whitespaces (depending on indent)
 vim.o.list = true
-vim.o.listchars = "tab:│—,lead:‧,leadmultispace:│‧‧‧,extends:»,precedes:«"
+vim.api.nvim_create_autocmd(
+    { "BufEnter", "OptionSet" },
+    {
+        callback = function(args)
+            if args.event == "BufEnter" or args.match == "shiftwidth" then
+                local sw = vim.bo[args.buf].shiftwidth
+                if sw == 2 then
+                    vim.opt_local.listchars = {
+                        tab = "│—",
+                        lead = "‧",
+                        trail = "‧",
+                        leadmultispace = "│‧",
+                        extends = "»",
+                        precedes = "«",
+                    }
+                elseif sw == 4 then
+                    vim.opt_local.listchars = {
+                        tab = "│—",
+                        lead = "‧",
+                        trail = "‧",
+                        leadmultispace = "│‧‧‧",
+                        extends = "»",
+                        precedes = "«",
+                    }
+                end
+            end
+        end,
+    }
+)
 
 require("config.lazy")
 require("config.keymap")

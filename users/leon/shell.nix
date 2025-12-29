@@ -13,9 +13,15 @@
             /* Git aliases */
             g = "git";
             gs = "git s";
+            gc = "git c";
             gd = "git d";
             gl = "git l";
             ga = "git a";
+            gp = "git p";
+
+            /* Nix */
+            nrs = "sudo nixos-rebuild switch --flake ~/dotfiles#`hostname`";
+            dev = "nix develop -c zsh";
         };
 
         /* prompt marker for neovim terminal */
@@ -37,6 +43,11 @@
                 "history"
             ];
         };
+    };
+
+    programs.nix-index = {
+        enable = true;
+        enableZshIntegration = true;
     };
 
     programs.starship = {

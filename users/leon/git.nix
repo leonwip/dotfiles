@@ -26,6 +26,7 @@
                     + "%C(bold blue)%an%Creset %s%C(yellow)%d%Creset "
                     + "%Cgreen(%cr)' --abbrev-commit --date=relative";
                 a = "add";
+                p = "push";
             };
 
             init.defaultBranch = "main";

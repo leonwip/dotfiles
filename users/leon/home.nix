@@ -27,6 +27,10 @@
             wireshark-qt
             file
             xorriso
+            dfu-util
+            segger-jlink
+            qemu
+            OVMF
 
             /* minecraft */
             prismlauncher
@@ -62,14 +66,10 @@
         colorScheme = "dark";
     };
 
-    programs.nix-index = {
-        enable = true;
-        enableZshIntegration = true;
-    };
-
     imports = [
         ./git.nix
         ./hypr.nix
+        ./music.nix
         ./neovim.nix
         ./shell.nix
         ./waybar.nix

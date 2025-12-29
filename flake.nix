@@ -16,6 +16,7 @@
                 ./cannectivity.nix
                 ./configuration.nix
                 ./greetd.nix
+                ./jlink.nix
                 ./locale.nix
                 ./maintenance.nix
                 ./network-mounts.nix

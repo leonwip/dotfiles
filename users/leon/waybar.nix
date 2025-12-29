@@ -17,6 +17,7 @@
                     "clock"
                 ];
                 modules-right = [
+                    "mpd"
                     "cpu"
                     "memory"
                     "disk"
@@ -49,6 +50,19 @@
 
                 /* Right */
 
+                mpd = {
+                    format = "{stateIcon} {artist} - {album} - {title}";
+                    format-disconnected = "";
+                    format-stopped = "";
+                    interval = 1;
+                    state-icons = {
+                        paused = "";
+                        playing = "";
+                    };
+                    tooltip-format = "MPD (connected)";
+                    tooltip-format-disconnected = "MPD (disconnected)";
+                };
+
                 cpu = {
                     interval = 1;
                     format = " {usage}%";
@@ -69,6 +83,7 @@
                     format = " {ifname}";
                     format-ethernet = " {ipaddr}/{cidr}";
                     format-disconnected = "";
+                    tooltip-format = " {ifname}";
                 };
 
                 wireplumber = {
@@ -144,7 +159,8 @@
             #workspaces button:hover .workspace-label { color: @mauve; }
 
             #window,
-            #clock { color: @text; }
+            #clock,
+            #mpd { color: @text; }
 
             #cpu,
             #memory,
