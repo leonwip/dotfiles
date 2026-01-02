@@ -7,9 +7,13 @@
             url = "github:nix-community/home-manager/release-25.11";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        opencode = {
+            url = "github:anomalyco/opencode/v1.0.223";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
-    outputs = { nixpkgs, home-manager, ... }@inputs:
+    outputs = { nixpkgs, home-manager, opencode, ... }@inputs:
         let
             /* Common modules shared across all hosts */
             commonModules = [
@@ -21,6 +25,7 @@
                 ./maintenance.nix
                 ./network-mounts.nix
                 ./openocd.nix
+                ./plymouth.nix
 
                 /* Home-manager config */
                 home-manager.nixosModules.home-manager {
@@ -28,6 +33,15 @@
                     home-manager.useUserPackages = true;
                     home-manager.users.leon = import ./users/leon/home.nix;
                     home-manager.backupFileExtension = "bak";
+                }
+
+                /* Overlay nixpkgs OpenCode version */
+                {
+                    nixpkgs.overlays = [
+                        (final: prev: {
+                            opencode = opencode.packages.${final.system}.default or opencode.defaultPackage.${final.system};
+                        })
+                    ];
                 }
             ];
         in {

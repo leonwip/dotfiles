@@ -7,7 +7,6 @@
 
     home.packages = with pkgs; [
         ripgrep /* for telescope */
-        gnumake /* for building avante */
 
         /* lsp servers */
         clang-tools
@@ -18,8 +17,5 @@
     ];
 
     home.file.".config/nvim".source = ./config/nvim;
-
-    /* claude api key for avante */
-    home.sessionVariables.AVANTE_ANTHROPIC_API_KEY = "redacted";
 
 }

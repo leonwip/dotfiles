@@ -17,6 +17,7 @@
             wofi
             kitty
             inkscape
+            gimp
             qbittorrent
             screen
             dconf
@@ -31,6 +32,7 @@
             segger-jlink
             qemu
             OVMF
+            opencode
 
             /* minecraft */
             prismlauncher
