@@ -18,6 +18,7 @@ in
         "sd_mod"
     ];
     boot.initrd.kernelModules = [];
+    boot.kernelPackages = pkgs.linuxPackages_latest;
     boot.kernelModules = [ "kvm-intel" ];
     boot.extraModulePackages = [];
 
@@ -62,9 +63,21 @@ in
 
     /* Networking */
 
-    networking.useDHCP = lib.mkDefault true;
-    networking.hostName = "caterpillar";
-    networking.networkmanager.enable = true;
+    networking = {
+        useDHCP = lib.mkDefault true;
+        hostName = "caterpillar";
+
+        wireless = {
+            enable = true;
+            userControlled.enable = true;
+            interfaces = [ "wlp0s20f3" ];
+            networks = {
+                "iPhone von Leon" = {
+                    pskRaw = "redacted";
+                };
+            };
+        };
+    };
 
     systemd.services.NetworkManager-wait-online.enable = false;
 

@@ -120,6 +120,13 @@
                     { name = "heise"; url = "https://www.heise.de/"; }
                     { name = "AISLER"; url = "https://aisler.net/"; }
                     { name = "Proton Mail"; url = "https://account.proton.me/mail"; }
+                    { name = "MarkWorld"; url = "https://makerworld.com/"; }
+                    { name = "Printables"; url = "https://www.printables.com/"; }
+                    { name = "IKEA"; url = "https://www.ikea.com/de/en/"; }
+                    { name = "Coffee Circle"; url = "https://www.coffeecircle.com/"; }
+                    { name = "VW GitHub"; url = "https://git.hub.vwgroup.com/"; }
+                    { name = "VW DevStack"; url = "https://devstack.vwgroup.com/"; }
+                    { name = "VW KundenCenter"; url = "https://kundencenter.volkswagen.de/"; }
                 ];
             };
 

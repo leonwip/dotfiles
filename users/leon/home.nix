@@ -19,26 +19,21 @@
             inkscape
             gimp
             qbittorrent
-            screen
             dconf
             eza
             fastfetch
             discord
-            can-utils
-            wireshark-qt
             file
             xorriso
-            dfu-util
-            segger-jlink
             qemu
             OVMF
-            opencode
+            grim
 
             /* minecraft */
             prismlauncher
             temurin-bin-21
 
-            /* Fonts */
+            /* fonts */
             dejavu_fonts
             fira-code
             fira-code-symbols
@@ -69,13 +64,15 @@
     };
 
     imports = [
+        ./embedded.nix
+        ./firefox.nix
         ./git.nix
         ./hypr.nix
         ./music.nix
         ./neovim.nix
         ./shell.nix
+        ./vibecode.nix
         ./waybar.nix
-        ./firefox.nix
     ];
 
 }

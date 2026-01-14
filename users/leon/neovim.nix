@@ -7,6 +7,7 @@
 
     home.packages = with pkgs; [
         ripgrep /* for telescope */
+        gcc /* for building treesitter */
 
         /* lsp servers */
         clang-tools

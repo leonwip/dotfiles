@@ -1,7 +1,7 @@
 { pkgs, ... }: {
 
     home.packages = with pkgs; [
-        pinentry-curses
+        pinentry-qt
     ];
 
     programs.git = {
@@ -39,7 +39,7 @@
         enable = true;
         enableSshSupport = true;
         sshKeys = [ "0EF933A91612E6FE2D094FFED9AA3CAFB8E935D6" ];
-        pinentry.package = pkgs.pinentry-curses;
+        pinentry.package = pkgs.pinentry-qt;
     };
 
 }
