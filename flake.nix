@@ -2,13 +2,13 @@
     description = "My NixOS flake";
 
     inputs = {
-        nixpkgs.url = "nixpkgs/nixos-25.11";
+        nixpkgs.url = "nixpkgs/nixos-unstable";
         home-manager = {
-            url = "github:nix-community/home-manager/release-25.11";
+            url = "github:nix-community/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
         };
         opencode = {
-            url = "github:anomalyco/opencode/v1.1.13";
+            url = "github:anomalyco/opencode/v1.1.35";
             inputs.nixpkgs.follows = "nixpkgs";
         };
     };
@@ -62,7 +62,6 @@
                         ./hosts/caterpillar.nix
                     ] ++ commonModules;
                 };
-                /* TODO: add homeserver */
             };
         };
 }

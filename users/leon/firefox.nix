@@ -127,6 +127,8 @@
                     { name = "VW GitHub"; url = "https://git.hub.vwgroup.com/"; }
                     { name = "VW DevStack"; url = "https://devstack.vwgroup.com/"; }
                     { name = "VW KundenCenter"; url = "https://kundencenter.volkswagen.de/"; }
+                    { name = "Jellyfin"; url = "http://napoles:8096/web/#/home"; }
+                    { name = "Grafana"; url = "http://napoles:3000/"; }
                 ];
             };
 

@@ -7,7 +7,7 @@
         /* Automatically login and start hyprland */
         settings.default_session = {
             user = "leon";
-            command = "${pkgs.hyprland}/bin/hyprland";
+            command = "${pkgs.hyprland}/bin/start-hyprland";
         };
     };
 

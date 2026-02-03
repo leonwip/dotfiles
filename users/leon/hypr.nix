@@ -61,7 +61,7 @@
 
             /* Monitors
              * See https://wiki.hypr.land/Configuring/Monitors/ */
-            monitor = ",3440x1440@100,auto,auto";
+            monitor = "DP-4,3440x1440@100,auto,auto";
 
             /* https://wiki.hypr.land/Configuring/Variables/#general */
             general = {
@@ -228,7 +228,7 @@
 
             /* Windows
              * https://wiki.hypr.land/Configuring/Window-Rules/ */ 
-            windowrule = [
+            windowrulev2 = [
                 /* Ignore maximize requires from apps */
                 "suppressevent maximize, class:.*"
                 /* Fix some dragging issues with XWayland */
@@ -240,8 +240,14 @@
     services.hyprpaper = {
         enable = true;
         settings = {
-            preload = [ "~/.wallpapers/wallhaven-5g22q5_3440x1440.png" ];
-            wallpaper = [ ", ~/.wallpapers/wallhaven-5g22q5_3440x1440.png" ];
+            splash = false;
+            wallpaper = [
+                {
+                    monitor = "DP-4";
+                    path = "~/.wallpapers/wallhaven-5g22q5_3440x1440.png";
+                    fit_mode = "cover";
+                }
+            ];
         };
     };
 

@@ -10,7 +10,6 @@
         abcde
         flac
         cdparanoia
-        id3
         id3v2
 
         mpc /* mpd client */
