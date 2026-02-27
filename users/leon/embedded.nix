@@ -2,7 +2,7 @@
 
     home.packages = with pkgs; [
         can-utils
-        wireshark-qt
+        wireshark
 
         screen
         minicom
@@ -17,6 +17,8 @@
 
         binwalk
         squashfsTools
+
+        gcc-arm-embedded
     ];
 
 }

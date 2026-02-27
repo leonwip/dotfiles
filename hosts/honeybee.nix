@@ -65,9 +65,15 @@ in
 
     /* Networking */
 
-    networking.useDHCP = lib.mkDefault true;
-    networking.hostName = "honeybee";
-    networking.networkmanager.enable = true;
+    networking = {
+        useDHCP = lib.mkDefault true;
+        hostName = "honeybee";
+        networkmanager.enable = true;
+        nameservers = [
+            "192.168.178.127"
+            "2a0c:d242:9051:da00:8c86:f52:b94f:41bd"
+        ];
+    };
 
     systemd.services.NetworkManager-wait-online.enable = false;
 

@@ -85,6 +85,15 @@
                 "browser.urlbar.suggest.trending" = false;
                 # Don't show first run welcome
                 "browser.aboutwelcome.enabled" = false;
+                # Never translate German
+                "browser.translations.neverTranslateLanguages" = "de";
+
+                # Custom homepage
+                "browser.startup.homepage" = "http://napoles:8082/";
+                # Show home button in toolbar
+                "browser.uiCustomization.state" = ''
+                    {"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":[],"nav-bar":["back-button","forward-button","stop-reload-button","customizableui-special-spring1","home-button","vertical-spacer","urlbar-container","customizableui-special-spring2","downloads-button","fxa-toolbar-menu-button","unified-extensions-button"],"toolbar-menubar":["menubar-items"],"TabsToolbar":["firefox-view-button","tabbrowser-tabs","new-tab-button","alltabs-button"],"vertical-tabs":[],"PersonalToolbar":["import-button","personal-bookmarks"]},"seen":["developer-button","screenshot-button"],"dirtyAreaCache":["nav-bar","vertical-tabs","PersonalToolbar","toolbar-menubar","TabsToolbar"],"currentVersion":23,"newElementCount":3}
+                '';
             };
 
             bookmarks = {
@@ -124,11 +133,14 @@
                     { name = "Printables"; url = "https://www.printables.com/"; }
                     { name = "IKEA"; url = "https://www.ikea.com/de/en/"; }
                     { name = "Coffee Circle"; url = "https://www.coffeecircle.com/"; }
-                    { name = "VW GitHub"; url = "https://git.hub.vwgroup.com/"; }
-                    { name = "VW DevStack"; url = "https://devstack.vwgroup.com/"; }
-                    { name = "VW KundenCenter"; url = "https://kundencenter.volkswagen.de/"; }
-                    { name = "Jellyfin"; url = "http://napoles:8096/web/#/home"; }
+
+                    { name = "Homepage"; url = "http://napoles:8082/"; }
                     { name = "Grafana"; url = "http://napoles:3000/"; }
+                    { name = "Jellyfin"; url = "http://napoles:8096/"; }
+                    { name = "Transmission"; url = "http://napoles:9091/"; }
+                    { name = "Gitea"; url = "http://napoles:3301/"; }
+                    { name = "AdGuard"; url = "http://napoles:7459/"; }
+                    { name = "Paperless"; url = "http://napoles:2898/"; }
                 ];
             };
 

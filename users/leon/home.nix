@@ -28,6 +28,7 @@
             qemu
             OVMF
             grim
+            wineWow64Packages.waylandFull
 
             /* minecraft */
             prismlauncher

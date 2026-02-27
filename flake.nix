@@ -7,13 +7,9 @@
             url = "github:nix-community/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-        opencode = {
-            url = "github:anomalyco/opencode/v1.1.35";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
     };
 
-    outputs = { nixpkgs, home-manager, opencode, ... }@inputs:
+    outputs = { nixpkgs, home-manager, ... }@inputs:
         let
             /* Common modules shared across all hosts */
             commonModules = [
@@ -34,22 +30,12 @@
                     home-manager.users.leon = import ./users/leon/home.nix;
                     home-manager.backupFileExtension = "bak";
                 }
-
-                /* Overlay nixpkgs OpenCode version */
-                {
-                    nixpkgs.overlays = [
-                        (final: prev: {
-                            opencode = opencode.packages.${final.system}.default or opencode.defaultPackage.${final.system};
-                        })
-                    ];
-                }
             ];
         in {
             nixosConfigurations = {
                 /* My home desktop */
                 honeybee = nixpkgs.lib.nixosSystem {
                     specialArgs = { inherit inputs; };
-                    system = "x86_64-linux";
                     modules = [
                         ./hosts/honeybee.nix
                     ] ++ commonModules;
@@ -57,7 +43,6 @@
                 /* My work laptop */
                 caterpillar = nixpkgs.lib.nixosSystem {
                     specialArgs = { inherit inputs; };
-                    system = "x86_64-linux";
                     modules = [
                         ./hosts/caterpillar.nix
                     ] ++ commonModules;

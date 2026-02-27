@@ -18,6 +18,9 @@
     /* curses tui mpd client */
     programs.ncmpcpp = {
         enable = true;
+        package = pkgs.ncmpcpp.override {
+            boost = pkgs.boost187;
+        };
         settings = {
             mouse_support = "yes";
         };

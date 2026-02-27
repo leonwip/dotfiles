@@ -228,11 +228,9 @@
 
             /* Windows
              * https://wiki.hypr.land/Configuring/Window-Rules/ */ 
-            windowrulev2 = [
+            windowrule = [
                 /* Ignore maximize requires from apps */
-                "suppressevent maximize, class:.*"
-                /* Fix some dragging issues with XWayland */
-                "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
+                "match:class .*, suppress_event maximize"
             ];
         };
     };
